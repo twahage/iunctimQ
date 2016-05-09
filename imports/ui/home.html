@@ -1,26 +1,28 @@
 <template name="home">
-  <div class="container">
-    <header>
-      <h1>Todo List ({{incompleteCount}})</h1>
+    <header class="panel panel-default">
+      <div class="panel-body">
+        <h1>Todo List ({{incompleteCount}})</h1>
 
-      <label class="hide-completed">
-        <input type="checkbox" />
-        Hide Completed Tasks
-      </label>
+        <label class="hide-completed">
+          <input type="checkbox" />
+          Hide Completed Tasks
+        </label>
 
-      {{> atNavButton}}
+        {{> atNavButton}}
 
-      {{#if currentUser}}
-        <form class="new-task">
-          <input type="text" name="text" placeholder="Type to add new tasks" />
-        </form>
-      {{/if}}
+        {{#if currentUser}}
+          <form class="new-task">
+            <input type="text" name="text" placeholder="Type to add new tasks" />
+          </form>
+        {{/if}}
+      </div>
     </header>
  
-    <ul>
+    <div class="list-group">
       {{#each tasks}}
         {{> task}}
       {{/each}}
-    </ul>
-  </div>
+    </div>
+
+
 </template>

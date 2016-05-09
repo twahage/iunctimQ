@@ -1,17 +1,18 @@
+
+
 AccountsTemplates.configure({
 	homeRoutePath:'/home',
 	defaultLayout: 'defaultLayout',
   	defaultContentRegion: 'main',
+  	forbidClientAccountCreation: true,
+  	onLogoutHook:function(error,state) {
+  		FlowRouter.go('/signin');
+  	}
 });
 
 AccountsTemplates.configureRoute('signIn', {
   name: 'signin',
   path: '/signin'
-});
-
-AccountsTemplates.configureRoute('signUp', {
-  name: 'signup',
-  path: '/signup'
 });
 
 var pwd = AccountsTemplates.removeField('password');

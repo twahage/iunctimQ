@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 
 import "../layout/default.html";
 import "../ui/home.js";
+import "../ui/atform.js";
+
 
 FlowRouter.route('/', {
     action: function(params, queryParams) {

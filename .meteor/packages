@@ -26,3 +26,5 @@ aldeed:simple-schema
 useraccounts:unstyled
 useraccounts:flow-routing
 kadira:blaze-layout
+alanning:roles
+twbs:bootstrap

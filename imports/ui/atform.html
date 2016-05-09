@@ -1,0 +1,90 @@
+<template name="atForm-override">
+  {{#unless hide}}
+    <div class="at-form">
+      {{#if showOauthServices}}
+        {{> atOauth}}
+      {{/if}}
+      {{#if showServicesSeparator}}
+        {{> atSep}}
+      {{/if}}
+      {{#if showError}}
+        {{> atError}}
+      {{/if}}
+      {{#if showResult}}
+        {{> atResult}}
+      {{/if}}
+      {{#if showMessage}}
+        {{> atMessage}}
+      {{/if}}
+      {{#if showPwdForm}}
+        {{> atPwdForm}}
+      {{/if}}
+      {{#if showTermsLink}}
+        {{> atTermsLink}}
+      {{/if}}
+      {{#if showSignInLink}}
+        {{> atSigninLink}}
+      {{/if}}
+      {{#if showSignUpLink}}
+        {{> atSignupLink}}
+      {{/if}}
+      {{#if showResendVerificationEmailLink}}
+        {{> atResendVerificationEmailLink}}
+      {{/if}}
+    </div>
+  {{/unless}}
+</template>
+
+<template name="atPwdForm-override">
+  <div class="at-pwd-form">
+    <form  role="form" id="at-pwd-form" class="form-signin {{disabled}}" novalidate action="#" method="POST">
+      {{> atTitle}}
+      {{#each fields}}
+        {{> atInput}}
+      {{/each}}
+      {{#if showReCaptcha}}
+        {{> atReCaptcha}}
+      {{/if}}
+      {{#if showForgotPasswordLink}}
+        {{> atPwdLink}}
+      {{/if}}
+      {{> atPwdFormBtn}}
+    </form>
+  </div>
+</template>
+
+
+<template name="atTitle-override">
+  <h2 class="at-title form-signin-heading">{{title}}</h2>
+</template>
+
+<template name="atTextInput-override">
+  <div class="at-input {{#if isValidating}}validating{{/if}} {{#if hasError}}has-error{{/if}} {{#if hasSuccess}}has-success{{/if}} {{#if feedback}}has-feedback{{/if}}">
+    {{#if showLabels}}
+      <label for="at-field-{{_id}}" class="sr-only">
+        {{displayName}} {{#unless required}}{{optionalText}}{{/unless}}
+      </label>
+    {{/if}}
+    <input type="{{type}}" id="at-field-{{_id}}" class="form-control" name="at-field-{{_id}}" placeholder="{{placeholder}}" autocapitalize="none" autocorrect="off">
+    {{#if hasIcon}}
+        <span class="{{iconClass}}"></span>
+    {{/if}}
+    {{#if hasError}}
+      <span>{{errorText}}</span>
+    {{/if}}
+  </div>
+</template>
+
+<template name="atPwdFormBtn-override">
+  <button type="submit" class="at-btn submit {{submitDisabled}} btn btn-lg btn-primary btn-block" id="at-btn">
+    {{buttonText}}
+  </button>
+</template>
+
+<template name="atError-override">
+  <div class="at-error">
+    {{#each error}}
+      <div class="alert alert-danger" style="margin-top:10px;" role="alert">{{errorText}}</div>
+    {{/each}}
+  </div>
+</template>
