@@ -1,0 +1,20 @@
+<template name="useradmin">
+  <header class="panel panel-default">
+    <div class="panel-body">
+      <h1>Useradmin</h1>
+    </div>
+  </header>
+
+  <button class="add btn btn-success" style="margin-bottom:10px;" 
+    data-toggle="modal" data-target="#user_edit">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+
+  {{> Template.dynamic template="user_edit" data=currentlyEditedUser}}
+
+  <div class="list-group">
+    {{#each users}}
+      {{> user}}
+    {{/each}}
+  </div>
+</template>

@@ -28,3 +28,8 @@ useraccounts:flow-routing
 kadira:blaze-layout
 alanning:roles
 twbs:bootstrap
+zimme:active-route
+arillo:flow-router-helpers
+mizzao:bootboxjs
+mrt:bootstrap-alerts
+session

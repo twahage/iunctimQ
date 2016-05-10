@@ -2,7 +2,7 @@
 
 AccountsTemplates.configure({
 	homeRoutePath:'/home',
-	defaultLayout: 'defaultLayout',
+	defaultLayout: 'loginLayout',
   	defaultContentRegion: 'main',
   	forbidClientAccountCreation: true,
   	onLogoutHook:function(error,state) {

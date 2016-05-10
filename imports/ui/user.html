@@ -1,0 +1,74 @@
+<template name="user">
+  <a href="#" class="list-group-item">
+  	<div style="display:inline-block;">
+	    <p><b>Username</b>:{{username}}</p>
+	    <p><b>E-Mail</b>:{{email}}</p>
+	    <p><b>Role</b>:{{role}}</p>
+	    <p><b>ID</b>:{{_id}}</p>
+    </div>
+    <span class="pull-right">
+      <button class="open-edit btn btn-xs btn-info">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+      <button class="delete btn btn-xs btn-warning">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </span>
+  </a>
+</template>
+
+<template name="user_edit">
+	<div class="modal fade" id="user_edit" tabindex="-1" role="dialog" aria-labelledby="user_edit_label">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="user_edit_label">User Form</h4>
+			    </div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<form>
+							  
+							  <div class="form-group">
+							    <label for="user_username">Username</label>
+							    <input type="email" class="form-control" id="user_username"
+							    value="{{username}}" 
+							    placeholder="Email"
+							    {{disabledDuringEdit}}>
+							  </div>
+							  <div class="form-group">
+							    <label for="user_email">Email</label>
+							    <input type="email" class="form-control" id="user_email"
+							    value="{{email}}" placeholder="Email"
+							    {{disabledDuringEdit}}>
+							  </div>
+							  <div class="form-group">
+							    <label for="user_role">Role</label>
+							    <select id="user_role" class="form-control">
+							    	<option value="employer" {{hasRole "employer"}} >Chef</option>
+							    	<option value="employee" {{hasRole "employee"}} >Angestellter</option>
+							    </select>
+							  </div>
+							  {{#unless _id}}
+								  <div class="form-group">
+								    <label for="user_password">Password</label>
+								    <input type="password" class="form-control" id="user_password" placeholder="Password">
+								  </div>
+								  <div class="form-group">
+								    <label for="user_confirmpassword">Confirm Password</label>
+								    <input type="password" class="form-control" id="user_confirmpassword" placeholder="Confirm Password">
+								  </div>
+							  {{/unless}}
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="submit" class="add btn btn-default">Save</button>
+			    </div>
+		    </div>
+		</div>
+	</div>
+</template>
