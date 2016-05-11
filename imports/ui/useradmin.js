@@ -14,7 +14,7 @@ Template.useradmin.onCreated(function bodyOnCreated() {
 
 Template.useradmin.helpers({
   users() {
-    return Meteor.users.find({}, { sort: { createdAt: -1 } });
+    return Meteor.users.find({"roles":{$not: { $in : [ 'admin' ] }}},{ sort: { createdAt: -1 } });
   },
   currentlyEditedUser() {
   	return Session.get("currentlyEditedUser");
