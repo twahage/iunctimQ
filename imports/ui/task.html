@@ -1,8 +1,81 @@
 <template name="task">
-  <a href="#" class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}} list-group-item">
-
-
-    <h4 class="list-group-item-heading">{{username}}</h4> 
-    <p class="list-group-item-text">{{text}}</p>
+  <a href="#" class="list-group-item">
+  	<div style="display:inline-block;">
+	    <p><b>Title</b>:{{title}}</p>
+	    <p><b>Description</b>:{{description}}</p>
+	    <p><b>Priority</b>:{{priority}}</p>
+	    <p><b>Deadline</b>:{{formatDate deadline}}</p>
+	    <p><b>Clockodo</b>:{{clockodo}}</p>
+	    <p><b>Owner</b>:{{owner}}</p>
+	    <p><b>Last Author</b>:{{lastAuthor}}</p>
+	    <p><b>Status</b>:{{status}}</p>
+	    <p><b>ID</b>:{{_id}}</p>
+    </div>
+    <span class="pull-right">
+      <button class="open-edit btn btn-xs btn-info">
+        <span class="glyphicon glyphicon-pencil"></span>
+      </button>
+      <button class="delete btn btn-xs btn-warning">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </span>
   </a>
+</template>
+
+<template name="task_edit">
+	<div class="modal fade" id="task_edit" tabindex="-1" role="dialog" aria-labelledby="task_edit_label">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="task_edit_label">Task Form</h4>
+			    </div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-12">
+							<form>
+							  
+							  <div class="form-group">
+							    <label for="task_title">Title</label>
+							    <input type="text" class="form-control" id="task_title"
+							    value="{{title}}" 
+							    placeholder="Title">
+							  </div>
+							  <div class="form-group">
+							    <label for="task_description">Description</label>
+							    <textarea type="text" class="form-control" id="task_description" 
+							    placeholder="Description">{{description}}</textarea>
+							  </div>
+							  <div class="form-group">
+							    <label for="task_priority">Priority</label>
+							    <select id="task_priority" class="form-control">
+							    	<option value="1" {{hasPriority 1}}>1</option>
+							    	<option value="2" {{hasPriority 2}}>2</option>
+							    	<option value="3" {{hasPriority 3}}>3</option>
+							    </select>
+							  </div>
+							  <div class="form-group">
+							    <label for="task_deadline">Deadline</label>
+							    <input type="date" class="form-control" id="task_deadline"
+							    value="{{formatDate deadline}}" 
+							    placeholder="Deadline">
+							  </div>
+							  <div class="form-group">
+							    <label for="task_clockodo">Clockodo</label>
+							    <input type="text" class="form-control" id="task_clockodo"
+							    value="{{clockodo}}" 
+							    placeholder="Clockodo">
+							  </div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        <button type="submit" class="save btn btn-default">Save</button>
+			    </div>
+		    </div>
+		</div>
+	</div>
 </template>

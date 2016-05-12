@@ -24,7 +24,7 @@ Template.user.helpers(helpers);
 Template.user_edit.helpers($.extend(helpers, {
   hasRole(role) {
     if(this.roles && this.roles[0] && this.roles[0] === role)
-      return "selected='selected'";
+      return "selected";
     else 
       return "";
   },
@@ -50,7 +50,7 @@ Template.user.events({
 });
 
 Template.user_edit.events({
-  'click .add'() {
+  'click .save'() {
 
     $("#user_edit").modal("hide");
 

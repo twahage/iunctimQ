@@ -8,7 +8,7 @@ import './user.js';
 import './useradmin.html';
 
 Template.useradmin.onCreated(function bodyOnCreated() {
-  Session.set("currentlyEditedUser",null)
+  Session.set("currentlyEditedUser",null);
   Meteor.subscribe('users');
 });
 
@@ -23,6 +23,6 @@ Template.useradmin.helpers({
 
 Template.useradmin.events({
   'click .add'() {
-
+    Session.set("currentlyEditedUser",null);
   },
 });

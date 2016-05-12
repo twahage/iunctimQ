@@ -9,7 +9,6 @@ Meteor.startup(() => {
   var adminUser = Meteor.users.findOne({username:"admin"});
   if(adminUser) {
     //Admin already exists
-  	//console.log(adminUser);
   } else {
   	var adminUserId = Accounts.createUser({
         username: "admin",
